@@ -1,0 +1,44 @@
+<p>
+	<label for="chucky-identifier-exists"><?php _e('Identifier does not exist', 'chucky-google-product-feed'); ?></label>
+	<input id="chucky-identifier-exists" type="checkbox" name="chucky-identifier-exists" value="1" <?php echo isset($settings['identifier']) && $settings['identifier'] == 'unexist' ? 'checked' : ''; ?>/> <br />
+	<small><?php _e('Check this field if the item does not have unique product identifier, such as GTIN, MPN or brand.', 'chucky-google-product-feed'); ?></small>
+</p>
+
+<div id="chucky-upi">
+	<p>
+	    <label for="chucky-gtin"><?php _e('Product GTIN', 'chucky-google-product-feed'); ?></label> - <small><?php _e('Global Trade Item Numbers (GTIN) include <strong>UPC</strong>, <strong>EAN</strong> (in Europe), <strong>JAN</strong> and <strong>ISBN</strong>', 'chucky-google-product-feed'); ?></small><br />
+	    <input type="text" name="chucky_gtin" id="chucky-gtin" value="<?php echo isset($settings['gtin']) ? $settings['gtin'] : ''; ?>" placeholder="<?php _e('GTIN', 'chucky-google-product-feed'); ?>" />
+	</p>
+
+	<p>
+	    <label for="chucky-mpn"><?php _e('Product MPN', 'chucky-google-product-feed'); ?></label> - <small><?php _e('Manufacturer Part Number', 'chucky-google-product-feed'); ?></small><br />
+	    <input type="text" name="chucky_mpn" id="chucky-mpn" value="<?php echo isset($settings['mpn']) ? $settings['mpn'] : ''; ?>" placeholder="<?php _e('MPN', 'chucky-google-product-feed'); ?>" />
+	</p>
+
+	<p>
+	    <label for="chucky-brand"><?php _e('Product brand', 'chucky-google-product-feed'); ?></label><br />
+	    <input type="text" name="chucky_brand" id="chucky-brand" value="<?php echo isset($settings['brand']) ? $settings['brand'] : ''; ?>" placeholder="<?php _e('Brand', 'chucky-google-product-feed'); ?>" />
+	</p>
+</div>
+<p>
+    <label for="chucky-category"><?php _e('Product Category', 'chucky-google-product-feed'); ?></label><br />
+    <select name="chucky_category" id="chucky-category">
+        <option value="0">Use default</option>
+        <?php foreach($google_categories as $k => $v): ?>                        
+            <option value="<?php echo $k; ?>" <?php if(isset($settings['category']) && $v == $settings['category']){ echo 'selected'; }; ?>><?php echo $v; ?></option>
+        <?php endforeach; ?>
+    </select>
+</p>
+
+<input type="hidden" name="chucky_settings" value="1" />
+
+<script type="text/javascript" >
+	jQuery('document').ready(function () {
+
+		jQuery('#chucky-identifier-exists').click(function () {
+			jQuery('#chucky-upi').toggle(!this.checked);
+		})
+
+		jQuery('#chucky-upi').toggle(!jQuery('#chucky-identifier-exists').is(':checked'));
+	});
+</script>

@@ -1,0 +1,28 @@
+<tr>
+    <th colspan="2">
+        <h3 style="margin-bottom: 0;"><?php _e('Google Product Feed', 'chucky-google-product-feed'); ?></h3>
+        <p class="description"><?php _e('Those setting will override global default options', 'chucky-google-product-feed'); ?></p>
+        <input type="hidden" name="chucky_settings" value="1" />
+    </th>
+</tr>
+
+
+<tr class="form-field">
+    <th scope="row"><label for="chucky_category"><?php _e('Product category', 'chucky-google-product-feed'); ?></label></th>
+    <td>
+        <select name="chucky_category" id="chucky_category">
+            <?php foreach($google_categories as $k => $v): ?>
+                <option <?php if($k == $settings['category']) echo 'selected'; ?> value="<?php echo $k; ?>"><?php echo $v; ?></option>
+            <?php endforeach; ?>
+        </select>
+        
+        <p class="description"><?php echo sprintf(__('Default google category for items in %s category', 'chucky-google-product-feed'), $category->name); ?></p>
+    </td>
+</tr>
+<tr class="form-field">
+    <th scope="row"><label for="chucky_brand"><?php _e('Brand', 'chucky-google-product-feed'); ?></label></th>
+    <td>
+        <input type="text" name="chucky_brand" id="chucky_brand" size="20" value="<?php echo isset($settings['brand']) ? $settings['brand'] : ''; ?>"/>
+        <p class="description"><?php echo sprintf(__('Default brand for items in %s category', 'chucky-google-product-feed'), $category->name); ?></p>
+    </td>
+</tr>

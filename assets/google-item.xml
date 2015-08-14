@@ -1,0 +1,17 @@
+<item>
+  <g:id><?php echo $id ?></g:id>
+  <title><![CDATA[<?php echo $title ?>]]></title>
+  <description><![CDATA[<?php echo $description ?>]]></description>
+  <link><?php echo $link ?></link>
+  <g:image_link><?php echo $image_link ?></g:image_link>
+  <g:condition><?php echo $condition ?></g:condition>
+  <g:availability><?php echo $availability ?></g:availability>
+  <g:price><?php echo $price ?></g:price>
+  <g:google_product_category><?php echo $category ?></g:google_product_category>
+  <g:product_type><?php echo $product_type ?></g:product_type>
+  <g:gtin><?php echo $gtin ?></g:gtin>
+  <g:mpn><?php echo $mpn ?></g:mpn>
+  <g:brand><?php echo $brand ?></g:brand>
+  <g:shipping_weight><?php echo $weight ?></g:shipping_weight>
+  <g:identifier_exists><?php echo $identifier_exists; ?></g:identifier_exists>
+</item>
