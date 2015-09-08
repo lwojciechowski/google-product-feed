@@ -55,7 +55,7 @@ class Admin
     {   
         global $post;
         
-        $settings = get_post_meta($post->ID, 'chucky_product_feed', true);
+        $settings = get_post_meta($post->ID, 'chucky_settings', true);
 
         $google_categories = $this->get_google_categories();
 
@@ -128,6 +128,8 @@ class Admin
         
         if(isset($_POST['chucky-identifier-exists'])) {
             $settings['identifier'] = 'unexist';
+        } else {
+            $settings['identifier'] = 'exist';
         }
         
         if(!empty($_POST['chucky_category'])) {
